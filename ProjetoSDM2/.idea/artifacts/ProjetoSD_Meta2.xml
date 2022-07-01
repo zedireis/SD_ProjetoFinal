@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ProjetoSD_Meta2">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjetoSD_Meta2</output-path>
+    <root id="archive" name="ProjetoSD_Meta2.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ProjetoSD_Meta2" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javassist:javassist:3.11.0.GA" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="org.apache.struts:struts2-spring-plugin:2.5.14.1" />
+          <element id="library" level="project" name="javax.websocket-client-api-1.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ProjetoSD_Meta2/web/Web" />
+    </root>
+  </artifact>
+</component>

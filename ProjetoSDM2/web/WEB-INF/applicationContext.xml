@@ -1,0 +1,75 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- Models -->
+    <bean id="shoesProductModel" class="models.ShoeProductModel" scope="prototype"/>
+
+    <bean id="laptopProductModel" class="models.LaptopProductModel" scope="prototype"/>
+
+    <bean id="carProductModel" class="models.CarProductModel" scope="prototype"/>
+
+    <bean id="eleicaoModel" class="models.EleicaoModel" scope="prototype"/>
+
+    <bean id="pessoaModel" class="models.PessoaModel" scope="prototype"/>
+
+    <!-- Services -->
+    <bean id="shoesSearchService" class="services.ShoesSearchService">
+    </bean>
+
+    <bean id="laptopSearchService" class="services.LaptopSearchService">
+    </bean>
+
+    <bean id="carSearchService" class="services.CarSearchService">
+    </bean>
+
+    <bean id="eleicaoSearchService" class="services.eleicaoSearchService">
+    </bean>
+
+    <bean id="pessoaListaSearchService" class="services.pessoaListaSearchService">
+    </bean>
+
+    <bean id="eleicaoPassadaSearchService" class="services.eleicaoPassadaSearchService">
+    </bean>
+
+    <bean id="localVotoSearchService" class="services.localVotoSearchService">
+    </bean>
+
+    <!-- Actions -->
+    <bean id="shoesSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="shoesSearchService" />
+        <property name="inputObject" ref="shoesProductModel" />
+    </bean>
+
+    <bean id="laptopSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="laptopSearchService" />
+        <property name="inputObject" ref="laptopProductModel" />
+    </bean>
+
+    <bean id="carSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="carSearchService" />
+        <property name="inputObject" ref="carProductModel" />
+    </bean>
+
+    <bean id="eleicaoSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="eleicaoSearchService" />
+        <property name="inputObject" ref="eleicaoModel" />
+    </bean>
+
+    <bean id="pessoaListaSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="pessoaListaSearchService" />
+        <property name="inputObject" ref="pessoaModel" />
+    </bean>
+
+    <bean id="eleicaoPassadaSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="eleicaoPassadaSearchService" />
+        <property name="inputObject" ref="eleicaoModel" />
+    </bean>
+
+    <bean id="localVotoSearchAction" class="actions.SearchAction" scope="prototype">
+        <property name="searchService" ref="localVotoSearchService" />
+        <property name="inputObject" ref="eleicaoModel" />
+    </bean>
+
+</beans>

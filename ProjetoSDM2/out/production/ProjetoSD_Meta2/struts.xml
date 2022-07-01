@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="index">
+            <result>index.jsp</result>
+        </action>
+
+        <action name="modoAdmin">                                                               <!-- entrar em modo admin -->
+            <result>modoAdminShow.jsp</result>
+        </action>
+
+        <action name="resgistarUser">                                                           <!-- registar novo utilizador -->
+            <result>registarUserShow.jsp</result>
+        </action>
+
+        <action name="criarEleicao">                                                            <!-- registar nova eleicao -->
+            <result>criarEleicaoShow.jsp</result>
+        </action>
+
+        <action name="gerirEleicoesSearch" class="eleicaoSearchAction">                          <!-- gerir Eleicoes | add Listas -->
+            <result>gerirEleicoesShow.jsp</result>
+        </action>
+
+        <action name="registoSubmitUser"  class="actions.registoUserSubmitAction" method="execute">
+            <result name="success">/modoAdminShow.jsp</result>                                  <!-- ecra para voltar depois de registar novo user -->
+            <result name="error">/registarUserShow.jsp</result>                                 <!-- fica a espera de inputs corretos -->
+        </action>
+
+        <action name="registoSubmitEleicao"  class="actions.registoEleicaoSubmitAction" method="execute">
+            <result name="success">/modoAdminShow.jsp</result>                                  <!-- ecra para voltar depois de registar nova eleicao -->
+            <result name="error">/criarEleicaoShow.jsp</result>                                 <!-- fica a espera de inputs corretos -->
+        </action>
+
+        <action name="submitEscolherEleicaoForVoto" class="actions.loginVotanteAction" method="EscolherEleicaoEleitor"> <!-- volta ao ecra para o utilizador dar login -->
+            <result name="success">/votar.jsp</result>
+            <result name="error">/selectEleicaoForVoto.jsp</result>
+        </action>
+
+        <action name="submitVotoLista" class="actions.loginVotanteAction" method="registarVoto">    <!-- submeter voto numa lista -->
+            <result name="success">/votoLogin.jsp</result>
+            <result name="error">/votoLogin.jsp</result>
+        </action>
+
+        <action name="votoEleitor" >                                                            <!-- dar login -->
+            <result>votoLogin.jsp</result>
+        </action>
+
+        <action name="login" class="actions.loginVotanteAction" method="execute">
+            <result name="success">/selectEleicaoForVoto.jsp</result>                                          <!-- ir para ecra de votar depois de dar login -->
+            <result name="login">/votoLogin.jsp</result>                                  <!-- volta ao ecra para o utilizador dar login -->
+        </action>
+
+        <action name="laptopSearch" class="laptopSearchAction">
+            <result>laptopSearchShow.jsp</result>
+        </action>
+
+        <action name="shoesSearch" class="shoesSearchAction">
+            <result>shoesSearchShow.jsp</result>
+        </action>
+
+        <action name="gerirEleicoesMenu" class="actions.gerirEleicoesAction" method="selecionar">
+            <result name="success">/gerirEleicoesShow.jsp</result>
+        </action>
+
+        <action name="criarCandidatura" class="pessoaListaSearchAction">
+            <result>criarListaEleicaoShow.jsp</result>
+        </action>
+
+        <action name="registoSubmitListaEleicao" class="actions.gerirEleicoesAction" method="gerirCandidatura">
+            <result name="success">/gerirEleicoesShow.jsp</result>
+            <result name="error">/criarListaEleicaoShow.jsp</result>
+        </action>
+
+        <action name="alterarPropsEleicao" class="actions.gerirEleicoesAction" method="editar">
+            <result name="success">/editarEleicao.jsp</result>
+        </action>
+
+        <action name="editarSubmitEleicao" class="actions.gerirEleicoesAction" method="editarSubmit">
+            <result name="success">/gerirEleicoesShow.jsp</result>
+            <result name="error">/gerirEleicoesShow.jsp</result>
+        </action>
+
+        <action name="consultarEleicoesSearch" class="eleicaoPassadaSearchAction">
+            <result>consultarEleicoesShow.jsp</result>
+        </action>
+
+        <action name="consultarEleicoesMenu" class="actions.gerirEleicoesAction" method="statsEleicao">
+            <result name="success">/statsEleicao.jsp</result>
+        </action>
+
+        <action name="consultarVotosSearch" class="localVotoSearchAction">
+            <result>localEleitorShow.jsp</result>
+        </action>
+
+        <action name="consultarVotosMenu" class="actions.gerirEleicoesAction" method="saberLocal">
+            <result name="success">/localVoto.jsp</result>
+        </action>
+
+    </package>
+</struts>
